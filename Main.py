@@ -1,7 +1,6 @@
 import getopt
 import sys
 import magic
-
 import cv2
 
 
@@ -10,7 +9,6 @@ def encode(rgba_image, __message):
     size_x, size_y = get_image_info(rgba_image)
     __KEY = key_generator(size_x, size_y, len(__message))
     print("key is " + str(__KEY))
-
     try:
         for index_y, y in enumerate(rgba_image):
             for index_x, x in enumerate(y):
@@ -76,7 +74,6 @@ def main():
     except getopt.GetoptError:
         usage("parameters missing")
         sys.exit(2)
-
     for opt, arg in opts:
         if opt == '-h':
             usage()
@@ -94,7 +91,6 @@ def main():
         sys.exit(2)
     is_clean, input_image = check_image(image_path)
     if mode == "encode":
-        # is_clean, input_image = check_image(image_path)
         if not is_clean:
             print("the imported image may contain already a message or does not fit the algorithm")
             sys.exit(0)
@@ -139,9 +135,7 @@ def check_image(image_path):
                     continue
                 break
             else:
-                # print("input file is ok to hide a message")
                 return True, image
-            # print("input file is a not valid png to hide a message")
             return False, image
     print(x)
 
