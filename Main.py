@@ -28,7 +28,7 @@ def decode(rgba_image):
     size_x, size_y = get_image_info(rgba_image)
     for index_y, y in enumerate(rgba_image):
         for index_x, x in enumerate(y):
-            if index_y != 0 | index_x != 0:
+            if index_y != 0 or index_x != 0:
                 if x[3] == 0:
                     __KEY = index_y * size_x + index_x
                     break
